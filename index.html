@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Group 4 | Nucleic Acids & Sickle Cell</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Space+Grotesk:wght@500;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader-dna"></div>
+        <p>Initializing Sequence...</p>
+    </div>
+
+    <!-- Interactive Canvas Background -->
+    <canvas id="bgCanvas"></canvas>
+    <div class="cursor-glow" id="cursorGlow"></div>
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">NUCLEIC<span>ACIDS</span></div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#blueprint">Blueprint</a></li>
+            <li><a href="#case-study">Case Study</a></li>
+            <li><a href="#team">Team</a></li>
+        </ul>
+        <button class="btn-primary glow-btn" id="openPresentation">Launch Presentation</button>
+    </nav>
+
+    <!-- Hero -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="tag">EARTH SPACE SCIENCE PROJECT</div>
+            <h1>Unlocking the Code of <br><span class="gradient-text">Nucleic Acids</span></h1>
+            <p class="hook" id="typewriter"></p>
+            <div class="hero-buttons">
+                <a href="#blueprint" class="btn-secondary">Explore the Science</a>
+                <button class="btn-primary glow-btn" id="openPresentationHero">View Slide Deck</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blueprint Section -->
+    <section id="blueprint" class="section">
+        <div class="container fade-in">
+            <h2 class="section-title">The Chemical Blueprint</h2>
+            <div class="grid-2">
+                <div class="info-card glass tilt-card">
+                    <h3>Monomer: Nucleotide</h3>
+                    <p>Built from a sugar, a phosphate group, and a nitrogenous base.</p>
+                </div>
+                <div class="info-card glass tilt-card">
+                    <h3>Polymer: DNA & RNA</h3>
+                    <p>Long chains of nucleotides that form the double helix structure.</p>
+                </div>
+                <div class="info-card glass highlight-card tilt-card">
+                    <h3>Key Elements: CHONP</h3>
+                    <p>Carbon, Hydrogen, Oxygen, Nitrogen, and <strong>Phosphorus</strong>.</p>
+                </div>
+                <div class="info-card glass tilt-card">
+                    <h3>Structure-Function</h3>
+                    <p>Weak hydrogen bonds allow the double helix to "unzip" for replication.</p>
+                </div>
+            </div>
+            <div class="media-container glass fade-in">
+                <img src="https://rotel.pressbooks.pub/genetics/open/download?type=pdf#51#2" alt="Nucleotide Diagram" class="responsive-img" onerror="this.src='https://placehold.co/800x400/111/00e5ff?text=DNA+Diagram'">
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Study Section -->
+    <section id="case-study" class="section dark-section">
+        <div class="container fade-in">
+            <h2 class="section-title">Case Study: Sickle Cell Anemia</h2>
+            <div class="case-study-layout">
+                <div class="case-text">
+                    <h3>The Mutation</h3>
+                    <p>A single base change in the HBB gene replaces Glutamic acid with Valine.</p>
+                    <h3>The Impact</h3>
+                    <p>This tiny structural change alters the hemoglobin protein, causing red blood cells to become rigid and sickle-shaped.</p>
+                    <img src="https://sickle.bwh.harvard.edu/scd_background.html#1" alt="Sickle Cell Diagram" class="responsive-img margin-top" onerror="this.src='https://placehold.co/600x400/111/ff007f?text=Sickle+Cell'">
+                </div>
+                <div class="media-container glass video-placeholder fade-in">
+                    <img src="https://animalsciences.missouri.edu/biotech/low/basics/protein/10-mutation/point_mutation/point_mutation.gif" alt="Mutation Animation" class="responsive-img" onerror="this.src='https://placehold.co/600x400/111/00e5ff?text=Mutation+Animation'">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="section">
+        <div class="container fade-in">
+            <h2 class="section-title">Meet The Team</h2>
+            <div class="team-grid">
+                <div class="team-card glass tilt-card"><h3>J'Marion</h3><p>Lead Researcher</p></div>
+                <div class="team-card glass tilt-card"><h3>Statchel</h3><p>Data Analyst</p></div>
+                <div class="team-card glass tilt-card"><h3>Jason</h3><p>Case Study Specialist</p></div>
+                <div class="team-card glass tilt-card"><h3>Kelly</h3><p>Presenter</p></div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Group 4 Project | Due: Sept 29, 2026</p>
+        <p class="sources">Sources: NCBI, Nature Reviews Genetics, NIH</p>
+    </footer>
+
+    <!-- Presentation Overlay -->
+    <div id="presentationOverlay" class="presentation-overlay">
+        <div class="presentation-container">
+            <div class="top-bar">
+                <div class="slide-counter"><span id="currentSlideNum">01</span> <span class="divider">/</span> 05</div>
+                <div class="presenter-tools">
+                    <button class="audio-btn" id="audioBtn" type="button">▶ AUTO-PLAY</button>
+                    <button class="notes-btn" id="notesBtn">📝 NOTES</button>
+                </div>
+                <div class="timer-container" id="timer-container">
+                    <span class="timer-label">PRACTICE</span>
+                    <span class="timer" id="timer">3:00</span>
+                </div>
+                <button class="close-btn" id="closePresentation">✕ EXIT</button>
+            </div>
+            <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+
+            <div class="slide active">
+                <div class="slide-content centered">
+                    <div class="tag">TEAM 4 : J'MARION, STATCHEL, JASON, KELLY</div>
+                    <h1 class="gradient-text">Unlocking the Code:</h1>
+                    <h1>Nucleic Acids</h1>
+                    <div class="hook-box glass"><p>How does a molecule smaller than a dust speck dictate your entire existence?</p></div>
+                </div>
+            </div>
+
+            <div class="slide">
+                <div class="slide-content">
+                    <h2 class="slide-title">The Chemical Blueprint</h2>
+                    <div class="content-grid">
+                        <div class="text-block">
+                            <ul>
+                                <li><strong>Monomer:</strong> Nucleotide</li>
+                                <li><strong>Polymer:</strong> DNA & RNA</li>
+                                <li><strong>Elements:</strong> CHONP</li>
+                                <li><strong>Structure:</strong> Double Helix</li>
+                            </ul>
+                        </div>
+                        <div class="media-placeholder glass">📸 [DIAGRAM]</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide">
+                <div class="slide-content">
+                    <h2 class="slide-title">Real-World Function</h2>
+                    <div class="function-cards">
+                        <div class="card glass"><h3>Storage</h3><p>Genetic Info</p></div>
+                        <div class="card glass"><h3>Expression</h3><p>Protein Synthesis</p></div>
+                        <div class="card glass"><h3>Heredity</h3><p>Passing Traits</p></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide">
+                <div class="slide-content">
+                    <h2 class="slide-title">Case Study: Sickle Cell</h2>
+                    <div class="content-grid">
+                        <div class="text-block">
+                            <ul>
+                                <li>Single base mutation</li>
+                                <li>Glutamic acid → Valine</li>
+                                <li>Sickle-shaped RBCs</li>
+                            </ul>
+                        </div>
+                        <div class="media-placeholder glass video-placeholder">🎥 [VIDEO/GIF]</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide">
+                <div class="slide-content">
+                    <h2 class="slide-title">Summary & Quiz</h2>
+                    <div class="summary-box glass">
+                        <p>1. Nucleic acids are CHONP polymers built from nucleotides.</p>
+                        <p>2. DNA stores data while RNA builds proteins.</p>
+                        <p>3. Structural changes alter biological function.</p>
+                    </div>
+                    <div class="quiz-box glass">
+                        <h3>Audience Quiz:</h3>
+                        <p>Which element is unique to nucleic acids?</p>
+                        <div class="options">
+                            <span>A) Carbon</span><span>B) Oxygen</span><span>C) Phosphorus</span><span>D) Hydrogen</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button id="prevBtn" disabled>◀ PREV</button>
+                <button id="nextBtn">NEXT ▶</button>
+            </div>
+        </div>
+        
+        <div class="speaker-notes" id="speakerNotes">
+            <h3>Speaker Notes</h3>
+            <p id="notesText">Click "Launch Presentation" and use the notes to guide your speech.</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
